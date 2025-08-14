@@ -26,8 +26,13 @@ flowchart LR
     D --> E{Model selection}
     E -->|GridSearchCV α grid| F[Ridge]
     E -->|GridSearchCV α grid| G[Lasso]
+    E --> O[Polynomial OLS (baseline)]
     F --> H[Evaluate on test set]
-    G --> H
+    G --> H[Evaluate on test set]
+    H --> I[Compare R² & RMSE]
+    I --> J{Choose best model}
+    J --> K[Persist best model (joblib)]
+    K --> L[Predict on new data]
 ```
 
 **Models compared**
@@ -76,6 +81,8 @@ scikit-learn==1.6.1
 scipy==1.15.3
 threadpoolctl==3.6.0
 ```
+
+---
 
 ## Reproduce the training/eval (minimal example)
 
@@ -146,6 +153,9 @@ ml_Medical_Cost/
 
 ---
 
+## Contributing
+
+Issues and PRs are welcome—ideas: stronger hyperparameter sweeps, feature importance/explanations, or deployment (FastAPI/Streamlit).
 
 ## License
 
@@ -154,4 +164,3 @@ MIT (add a `LICENSE` file if not present).
 ## Acknowledgements
 
 This repo adapts a well‑known public insurance dataset to compare linear regression techniques and illustrate the impact of regularisation on stability and interpretability.
-
