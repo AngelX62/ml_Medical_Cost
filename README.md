@@ -77,8 +77,6 @@ scipy==1.15.3
 threadpoolctl==3.6.0
 ```
 
----
-
 ## Reproduce the training/eval (minimal example)
 
 ```python
