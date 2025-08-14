@@ -16,26 +16,6 @@ Predict annual medical insurance charges from demographic and lifestyle variable
 
 ---
 
-## Methods
-
-```mermaid
-flowchart LR
-  A[Load data] --> B[Sanity checks & EDA]
-  B --> C[Polynomial features, deg 2]
-  C --> D[Scale + one-hot encode]
-  D --> E{Model selection}
-  E -->|GridSearchCV alpha grid| F[Ridge]
-  E -->|GridSearchCV alpha grid| G[Lasso]
-  E --> O[Polynomial OLS baseline]
-  F --> H[Evaluate on test set]
-  G --> H
-  O --> H
-  H --> I[Compare R^2 and RMSE]
-  I --> J{Choose best model}
-  J --> K[Persist best model (joblib)]
-  K --> L[Predict on new data]
-```
-
 **Models compared**
 
 * Polynomial OLS (degree‑2 baseline)
