@@ -140,7 +140,7 @@ Issues and PRs are welcome—ideas: stronger hyperparameter sweeps, feature impo
 
 ## License
 
-MIT (add a `LICENSE` file if not present).
+Licensed under the MIT License — see [LICENSE](./LICENSE) for details.
 
 ## Acknowledgements
 
