@@ -20,19 +20,20 @@ Predict annual medical insurance charges from demographic and lifestyle variable
 
 ```mermaid
 flowchart LR
-    A[Load data] --> B[Sanity checks & EDA]
-    B --> C[PolynomialFeatures (deg=2)]
-    C --> D[StandardScaler + OneHotEncoder]
-    D --> E{Model selection}
-    E -->|GridSearchCV α grid| F[Ridge]
-    E -->|GridSearchCV α grid| G[Lasso]
-    E --> O[Polynomial OLS (baseline)]
-    F --> H[Evaluate on test set]
-    G --> H[Evaluate on test set]
-    H --> I[Compare R² & RMSE]
-    I --> J{Choose best model}
-    J --> K[Persist best model (joblib)]
-    K --> L[Predict on new data]
+  A[Load data] --> B[Sanity checks & EDA]
+  B --> C[Polynomial features, deg 2]
+  C --> D[Scale + one-hot encode]
+  D --> E{Model selection}
+  E -->|GridSearchCV alpha grid| F[Ridge]
+  E -->|GridSearchCV alpha grid| G[Lasso]
+  E --> O[Polynomial OLS baseline]
+  F --> H[Evaluate on test set]
+  G --> H
+  O --> H
+  H --> I[Compare R^2 and RMSE]
+  I --> J{Choose best model}
+  J --> K[Persist best model (joblib)]
+  K --> L[Predict on new data]
 ```
 
 **Models compared**
@@ -164,3 +165,4 @@ MIT (add a `LICENSE` file if not present).
 ## Acknowledgements
 
 This repo adapts a well‑known public insurance dataset to compare linear regression techniques and illustrate the impact of regularisation on stability and interpretability.
+
